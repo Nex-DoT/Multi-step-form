@@ -1,0 +1,248 @@
+@font-face {
+    font-family: 'vazir';
+    src: url('./fonts/vazir.eot') format('eot'),
+     url('./fonts/vazir.ttf') format('truetype'),
+    url('./fonts/vazir.woff') format('woff'),
+    url('./fonts/vazir.woff2') format('woff2');
+}
+@import url('https://fonts.googleapis.com/css2?family=Teko:wght@300&display=swap');
+*{
+    margin: 0;
+    padding: 0;
+    font-family: 'Teko', sans-serif;
+    box-sizing: border-box;
+}
+body{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.box{
+    width: 700px;
+    height: 449px;
+    box-shadow: 0 0 30px 1px #00000035;
+    border-radius: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+}
+.box .steps{
+    background:linear-gradient(#00000000,#0000006a),  url(./images/bg-sidebar-desktop.svg) ;
+    position: absolute;
+    background-size: contain;
+    background-repeat: no-repeat;
+    width: 217px;
+    height: 449px;
+    left: 0px;
+    top: 0px;
+    border-radius: 15px;
+    box-shadow: 0 0 30px 1px #00000031;
+}
+.box .steps .steps1 {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+}
+.box .steps .steps1 h3{
+    width: 35px;
+    height: 35px;
+    background-color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 15px 12px;
+    box-shadow: 0 0 5px 1px #ffffff8e;
+    font-weight: 200;
+    cursor: pointer;
+    scale: 0.80;
+    transition: 0.3s all;
+}
+.box .steps .steps1 h3:hover{
+    background-color: black;
+    color: white;
+    scale: 0.99;
+}
+.box .steps .steps1 h3.active{
+    background-color: black;
+    color: white;
+    scale: 1;
+}
+.box .steps .steps1 div h2{
+    font-size: 18px;
+    margin-left: 2px;
+
+}
+.box .steps .steps1 div p{
+    font-weight: 200;
+    font-size: 12px;
+    color: white;
+    letter-spacing: 2px;
+}
+.stepOne,.stepTwo,.stepThere,.stepFour{
+    position: absolute;
+    top: 60px;
+    left: 270px;
+    width: 400px ;
+    height: 360px;
+    opacity: 0;
+    visibility: hidden;
+    display: none;
+}
+.stepOne.active{
+display: block;
+opacity: 1;
+visibility: visible;
+}
+.stepTwo.active{
+    display: block;
+    opacity: 1;
+    visibility: visible;
+    }
+.stepThere.active{
+        display: block;
+        opacity: 1;
+        visibility: visible;
+}
+.stepFour.active{
+            display: block;
+            opacity: 1;
+            visibility: visible;
+}
+
+.box-content .stepOne p{
+    color: gray;
+    margin-left: 20px;
+    margin-bottom: 40px;
+}
+.box-content .stepOne label{
+    display: block;
+    font-size: 17px;
+    margin-top: 10px;
+    margin-left: 18px;
+}
+.box-content .stepOne input{
+    width: 300px;
+    height: 40px;
+    border-radius: 20px;
+    border: 1px solid rgba(128, 128, 128, 0.384);
+    outline: none;
+    padding-left: 20px;
+}
+button{
+    position: absolute;
+    bottom: 15px;
+    right: 15px;
+    width: 70px;
+    height: 30px;
+    background-color: #3434ac;
+    color: white;
+    letter-spacing:1px;
+    border:none;
+    border-radius:3px;
+    cursor:pointer;
+    transition:0.3s all;
+}
+button:hover{
+    background-color:white;
+    color:#3434ac;
+    border:1px solid #3434ac;
+}
+.box-content .stepTwo .box-fix{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+.box-content .stepTwo .box-fix div{
+    z-index: 100;
+    cursor: pointer;
+    width: 30%;
+    border: 2px solid #00000053;
+    height: 150px;
+    margin-top: 30px ;
+    margin-bottom: 20px;
+    border-radius: 3px;
+    padding: 10px 10px;
+    cursor: pointer;
+}
+.box-content .stepTwo .box-fix div.active{
+    border-color: #2cc42c;
+    background-color: #6e6ef71e;
+}
+.box-content .stepTwo .box-fix div img{
+    margin-bottom: 15px; 
+}
+.box-content .stepTwo .apes{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.box-content .stepTwo .apes .span{
+    position: relative;
+    width: 60px;
+    height: 30px;
+    background-color: gray;
+    border-radius: 20px;
+    margin: 5px 10px;
+}
+.box-content .stepTwo .apes .span span{
+    position: absolute;
+    width: 25px;
+    height: 25px;
+    background-color: white;
+    border-radius: 50%;
+    right: 5px;
+    top: 50%;
+    transform: translateY(-50%);
+    cursor: pointer;
+    z-index: 100;
+    transition: 0.3s all;
+}
+.box-content .stepTwo button{
+    position: absolute;
+    right: 10;
+    bottom: 0;
+}
+.back-btn{
+    left: 10px;
+    color: gray;
+    background-color: white;
+}
+.back-btn:hover{
+    border: none;
+    color: gray;
+}
+.checkbox{
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    border-radius: 5px;
+    margin: 10px;
+    height: 50px;
+    border: 1px solid rgba(0, 0, 255, 0.221);
+}
+.checkbox input{
+    scale: 1.2;
+    margin: 10px;
+}
+.checkbox h6{
+    color: gray;
+}
+.checkbox .price{
+    position: absolute;
+    right: 10;
+    color: rgb(148, 148, 255);
+    font-size: 14px;
+}
+.stepFour p{
+    color: gray;
+}
+.stepFour div div{
+    width: 300px;
+    height: 40px;
+    background-color: cornsilk;
+}

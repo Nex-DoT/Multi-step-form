@@ -1,0 +1,146 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+     <script src="font.js"></script>
+</head>
+<body>
+    
+    <div class="box">
+        <div class="steps">
+            <div class="steps1">
+                <h3 id="btn" data-num="0" class="active">1</h3>
+                <div>
+                    <p>step 1</p>
+                    <h2>YOUR-INFO</h2>
+                </div>
+            </div>
+            <div class="steps1">
+                <h3 id="btn" data-num="1" class="">2</h3>
+                <div>
+                    <p>step 2</p>
+                    <h2>SELECT-PLAN</h2>
+                </div>
+            </div>
+            <div class="steps1">
+                <h3 id="btn" data-num="2" class="">3</h3>
+                <div>
+                    <p>step 3</p>
+                    <h2>ADD-ONS</h2>
+                </div>
+            </div>
+            <div class="steps1">
+                <h3 id="btn" data-num="3" class="">4</h3>
+                <div>
+                    <p>step 4</p>
+                    <h2>SUMMARY</h2>
+                </div>
+            </div>
+        </div>
+        <div></div>
+
+        <div class="box-content">
+            <div class="stepOne">
+                <h1>Personal info</h1>
+                <p>please provide your name , email address , and number .</p>
+                <label for="name">Name</label>
+                <input type="text" name="name"><br>
+                <label for="email">Email Address</label>
+                <input type="email" name="email"><br>
+                <label for="phone">Phone Number</label>
+                <input type="tel" name="phone"><br>
+                <button class="btn">Next step</button>
+            </div>
+            <div class="stepTwo">
+                <h1>Select your plan</h1>
+                <p>You have option of monthly or yearly biling.</p>
+                <div class="box-fix">
+                    <div class="active"><img src="./images/icon-arcade.svg" alt="">
+                        <h2>Arcade</h2>
+                        <p>$90</p>
+                        <h5>2 months free</h5>
+                    </div>
+                    <div><img src="./images/icon-advanced.svg" alt="">
+                        <h2>Advanced</h2>
+                        <p>$120</p>
+                        <h5>2 months free</h5>
+                    </div>
+                    <div><img src="./images/icon-pro.svg" alt="">
+                        <h2>Pro</h2>
+                        <p>$150</p>
+                        <h5>2 months free</h5>
+                    </div>
+                </div>
+                    <div class="apes">
+                        Monthly
+                        <span class="span"><span></span></span>
+                        Yearly
+                    </div>
+                    <button class="back-btn">Go Back</button>
+                <button >Next step</button>
+            </div>
+            <div class="stepThere">
+                <h1>Pick add-ons</h1>
+                <p>Add-ons help enhance your gaminig experience.</p>
+                <div box>
+                    <div class="checkbox">
+                        <input type="checkbox">
+                        <div>
+                            <h5>Online service</h5>
+                            <h6>Access to multiplayer games</h6>
+                        </div>
+                        <p class="price">+2/mo</p>
+                    </div>
+                    <div class="checkbox">
+                        <input type="checkbox">
+                        <div>
+                            <h5>Larger storege</h5>
+                            <h6>Extra 1TB of cloud save</h6>
+                        </div>
+                        <p class="price">+2/mo</p>
+                    </div>
+                    <div class="checkbox">
+                        <input type="checkbox">
+                        <div>
+                            <h5>Customizable Profile</h5>
+                            <h6>Access to multiplayer games</h6>
+                        </div>
+                        <p class="price">+2/mo</p>
+                    </div>
+                </div>
+                <button>Next Step</button>
+                <button class="back-btn">Go Back</button>
+
+            </div>
+            <div class="stepFour active">
+                <h1>Finishing up</h1>
+                <p>double-check everything looks OK before confirming.</p>
+                <div>
+                    <div>
+                        <span>
+                            <h5>Arcade (Monthly)</h5>
+                            <h6><a href="">change</a></h6>
+                            <p>$9/mo</p>
+                            <hr>
+                        </span></div>
+                     <div><h6>Online service</h6></div>
+                     <div><h6>Larger storage</h6></div>
+                     <div><h6></h6></div>
+                </div>
+                <p></p>
+                <button>Confirm</button>
+                <button class="back-btn">Go Back</button>
+
+            </div>
+        </div>
+         
+
+
+    </div>
+
+</body>
+<script src="javasc.js"></script>
+</html>
