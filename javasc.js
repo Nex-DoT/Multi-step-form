@@ -1,5 +1,6 @@
 const stepbtn = document.querySelectorAll('#btn');
 const steps = document.querySelector('.box-content').children;
+var n = 0;
 stepbtn.forEach((btn)=>{
     btn.addEventListener('click' , ()=>{
         for(i=0;i<stepbtn.length;i++){
@@ -9,10 +10,28 @@ stepbtn.forEach((btn)=>{
         btn.classList.add('active');
         let num = btn.getAttribute('data-num');
         steps[num].classList.add('active')
-
+        n = num;
+        
     })
 })
-var phoneRegex = /^\+?1?\s*?\(?\d{3}(?:\)|[-|\s])?\s*?\d{3}[-|\s]?\d{4}$/;
+
+const nextBTN = document.querySelectorAll('.btn');
+
+nextBTN.forEach((next)=>{
+    next.addEventListener('click' , function(){
+        for(i=0; i<steps.length;i++){
+            steps[i].classList.remove('active');
+            stepbtn[i].classList.remove('active')
+        }
+        n++
+        steps[n].classList.add('active');
+        stepbtn[n].classList.add('active');
+    })
+})
+
+
+
+var phoneRegex = /^[\+]?[(]?[0-9]{3}[)]?[-\s\.]?[0-9]{3}[-\s\.]?[0-9]{4,6}$/im;
 var emailRegex =/^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
 var nameRegex = /^(([A-Za-z]+[\-\']?)*([A-Za-z]+)?\s)+([A-Za-z]+[\-\']?)*([A-Za-z]+)?$/;
 function test(user){
@@ -36,7 +55,6 @@ const form = document.querySelector('.form'),
     let NameVal = Name.value,
           emailVal = email.value,
           phoneVal =phone.value; 
-          console.log(NameVal);
     if(NameVal===""){
         Erorsub(Name,'This fild is empty');
     }else if(!test(NameVal)){
@@ -55,6 +73,8 @@ const form = document.querySelector('.form'),
         Erorsub(phone,"This fild is empty.")
     }if(!testPhone(phoneVal)){
         Erorsub(phone,"Phone Number is not Valid . Try again!")
+    }else{
+        success(phone , "success")
     }
 })
 function Erorsub(index , massage){
@@ -69,5 +89,13 @@ function Erorsub(index , massage){
     }
 }
 function success(index,massege){
-
+    if(index==Name){
+        erorename.innerHTML = massege;
+    }
+    if(index==email){
+        eroreemail.innerHTML = massege;
+    }
+    if(index==phone){
+        erorePhone.innerHTML = massege;
+    }
 };

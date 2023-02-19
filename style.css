@@ -290,17 +290,15 @@ button:hover{
     position: absolute;
     right: 120;
     top: 2;
-    color: red;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    flex-flow: wrap column;
     height: 98%;
+    z-index: -1;
 }
 .erore p {
+    padding-bottom: 20px ;
     color: red !important;
     font-size: 11px;
     margin: 0 0;
+    text-align: end;
 
 }
 .form button{
