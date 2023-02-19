@@ -16,6 +16,19 @@ stepbtn.forEach((btn)=>{
 })
 
 const nextBTN = document.querySelectorAll('.btn');
+const backBTN = document.querySelectorAll('.back-btn');
+
+backBTN.forEach((back)=>{
+    back.addEventListener('click',function(){
+        n--
+        for(i=0;i<steps.length;i++){
+            steps[i].classList.remove('active');
+            stepbtn[i].classList.remove('active');
+        }
+        stepbtn[n].classList.add('active');
+        steps[n].classList.add('active');
+    })
+})
 
 nextBTN.forEach((next)=>{
     next.addEventListener('click' , function(){
