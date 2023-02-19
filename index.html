@@ -43,16 +43,23 @@
         <div></div>
 
         <div class="box-content">
-            <div class="stepOne">
+            <div class="stepOne active">
                 <h1>Personal info</h1>
                 <p>please provide your name , email address , and number .</p>
+                <form action="submit" class="form">
+                    <div class="erore">
+                        <p class="eroreName"></p>
+                        <p class="eroreEmail"></p>
+                        <p class="erorePhone">f</p>
+                    </div>
                 <label for="name">Name</label>
-                <input type="text" name="name"><br>
+                <input class="name" type="text" name="name"><br>
                 <label for="email">Email Address</label>
-                <input type="email" name="email"><br>
+                <input class="email" type="email" name="email"><br>
                 <label for="phone">Phone Number</label>
-                <input type="tel" name="phone"><br>
-                <button class="btn">Next step</button>
+                <input class="phone" type="tel" name="phone"><br>
+                <button type="submit" class="btn">Next step</button>
+            </form>
             </div>
             <div class="stepTwo">
                 <h1>Select your plan</h1>
@@ -115,22 +122,20 @@
                 <button class="back-btn">Go Back</button>
 
             </div>
-            <div class="stepFour active">
+            <div class="stepFour">
                 <h1>Finishing up</h1>
                 <p>double-check everything looks OK before confirming.</p>
-                <div>
-                    <div>
-                        <span>
-                            <h5>Arcade (Monthly)</h5>
-                            <h6><a href="">change</a></h6>
-                            <p>$9/mo</p>
-                            <hr>
-                        </span></div>
-                     <div><h6>Online service</h6></div>
-                     <div><h6>Larger storage</h6></div>
-                     <div><h6></h6></div>
-                </div>
-                <p></p>
+               <div class="box-4">
+                    <div class="resid">
+                        <h5>Arcade (Monthly)</h5>
+                        <a href="#">change</a>
+                        <p>$9/mo</p>
+                    </div>
+                    <h6>Online service <p>+$1/mo</p></h6>
+                    <h6>Larger storage <p>+$2/mo</p></h6>
+                    <h6>Customizable Profile <p>+$2/mo</p></h6>
+               </div>
+                <p class="p-4">klklk</p>
                 <button>Confirm</button>
                 <button class="back-btn">Go Back</button>
 
