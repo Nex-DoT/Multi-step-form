@@ -188,7 +188,7 @@ button:hover{
     border-radius: 20px;
     margin: 5px 10px;
 }
-.box-content .stepTwo .apes .span span{
+.box-content .stepTwo .apes .span .move-in{
     position: absolute;
     width: 25px;
     height: 25px;
@@ -198,8 +198,10 @@ button:hover{
     top: 50%;
     transform: translateY(-50%);
     cursor: pointer;
-    z-index: 100;
     transition: 0.3s all;
+}
+.box-content .stepTwo .apes .span .move-in.active{
+    left: 4px;
 }
 .box-content .stepTwo button{
     position: absolute;

@@ -112,3 +112,21 @@ function success(index,massege){
         erorePhone.innerHTML = massege;
     }
 };
+const changeBTN = document.querySelectorAll('.change');
+
+changeBTN.forEach((btn)=>{
+    btn.addEventListener('click' , function(){
+        for(i=0;i<changeBTN.length;i++){
+            changeBTN[i].classList.remove('active');
+        }
+        btn.classList.add('active');
+    })
+})
+
+
+const move=document.querySelector('.move-in');
+move.addEventListener('click' , function(){
+    move.classList.toggle('active');
+});
+
+
