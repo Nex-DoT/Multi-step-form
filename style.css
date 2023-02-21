@@ -201,7 +201,7 @@ button:hover{
     transition: 0.3s all;
 }
 .box-content .stepTwo .apes .span .move-in.active{
-    left: 4px;
+    right: 31px;
 }
 .box-content .stepTwo button{
     position: absolute;
@@ -274,6 +274,8 @@ button:hover{
     justify-content: space-between;
     font-size: 12px;
     margin-top: 10px;
+    opacity: 0;
+    display: none;
 }
 .box-4 h6 p{
     font-size: 11;

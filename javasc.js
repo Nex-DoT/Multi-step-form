@@ -112,15 +112,23 @@ function success(index,massege){
         erorePhone.innerHTML = massege;
     }
 };
-const changeBTN = document.querySelectorAll('.change');
+const changeBTN = document.querySelectorAll('.change'),
+      packageName = document.querySelector('.package-name'),
+      packagePrice = document.querySelector('.package-price');
 
 changeBTN.forEach((btn)=>{
+    let prices = btn.getAttribute('data-price');
+    console.log(prices[1]);
     btn.addEventListener('click' , function(){
         for(i=0;i<changeBTN.length;i++){
             changeBTN[i].classList.remove('active');
         }
         btn.classList.add('active');
+        packagePrice.innerHTML = "";
+        packageName.innerHTML=nameVal + ' (Monthly)' ;
+        packagePrice.innerHTML += prices;
     })
+
 })
 
 
@@ -128,5 +136,59 @@ const move=document.querySelector('.move-in');
 move.addEventListener('click' , function(){
     move.classList.toggle('active');
 });
+
+
+const checkBoxOS = document.querySelector('.checkbox-OS'),
+      checkBoxLS =document.querySelector('.checkbox-LS'),
+      checkBoxCP=document.querySelector('.checkbox-CP'),
+      checkedBoxOS=document.querySelector('.checkedbox'),
+      checkedBoxLS=document.querySelector('.checkedbox1'),
+      checkedBoxCP=document.querySelector('.checkedbox2');
+
+checkBoxCP.onclick=()=>{
+    boxse();
+}
+checkBoxLS.onclick=()=>{
+   boxse();
+}
+checkBoxOS.onclick=()=>{
+    boxse();
+}
+function boxse(){
+    if(checkBoxOS.checked==true){
+        checkedBoxOS.style.opacity= '1' ; 
+        checkedBoxOS.style.display= 'flex' ; 
+        checkedBoxOS.style.visibility= ' visibel'
+    }else{
+      checkedBoxOS.style.opacity= '0' ; 
+      checkedBoxOS.style.display= 'none' ;
+    }
+    if(checkBoxLS.checked==true){
+      checkedBoxLS.style.opacity= '1' ; 
+      checkedBoxLS.style.display= 'flex' ; 
+      checkedBoxLS.style.visibility= ' visibel'
+    }else{
+      checkedBoxLS.style.opacity= '0' ; 
+      checkedBoxLS.style.display= 'none' ;
+    }
+    if(checkBoxCP.checked==true){
+      checkedBoxCP.style.opacity= '1' ; 
+      checkedBoxCP.style.display= 'flex' ; 
+      checkedBoxCP.style.visibility= ' visibel'
+    }else{
+      checkedBoxCP.style.opacity= '0' ; 
+      checkedBoxCP.style.display= 'none' ;
+    }
+}
+
+
+
+const yearly = 12 ,
+      arcade = 9,
+      advance=12,
+      pro=15,
+      adds= 2,
+      priceP= document.querySelector('.p-4');
+
 
 
