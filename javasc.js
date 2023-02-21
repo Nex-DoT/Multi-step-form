@@ -43,6 +43,7 @@ nextBTN.forEach((next)=>{
 })
 
 
+let prices=0;
 
 var phoneRegex = /^[\+]?[(]?[0-9]{3}[)]?[-\s\.]?[0-9]{3}[-\s\.]?[0-9]{4,6}$/im;
 var emailRegex =/^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
@@ -112,44 +113,42 @@ function success(index,massege){
         erorePhone.innerHTML = massege;
     }
 };
+let m ;
+const priceP= document.querySelector('.p-4');
 const changeBTN = document.querySelectorAll('.change'),
       packageName = document.querySelector('.package-name'),
       packagePrice = document.querySelector('.package-price');
-
 changeBTN.forEach((btn)=>{
-    let prices = btn.getAttribute('data-price');
-    console.log(prices[1]);
     btn.addEventListener('click' , function(){
+        let NameVal = btn.getAttribute('data-name');
+        prices = btn.getAttribute('data-price');
         for(i=0;i<changeBTN.length;i++){
             changeBTN[i].classList.remove('active');
         }
         btn.classList.add('active');
-        packagePrice.innerHTML = "";
-        packageName.innerHTML=nameVal + ' (Monthly)' ;
+        packagePrice.innerHTML = "$";
+        packageName.innerHTML=NameVal + ' (Monthly)' ;
         packagePrice.innerHTML += prices;
+        // priceP.innerHTML= "$";
+        priceP.innerHTML= prices;
     })
-
-})
-
-
+});
 const move=document.querySelector('.move-in');
 move.addEventListener('click' , function(){
     move.classList.toggle('active');
 });
-
-
 const checkBoxOS = document.querySelector('.checkbox-OS'),
-      checkBoxLS =document.querySelector('.checkbox-LS'),
-      checkBoxCP=document.querySelector('.checkbox-CP'),
-      checkedBoxOS=document.querySelector('.checkedbox'),
-      checkedBoxLS=document.querySelector('.checkedbox1'),
-      checkedBoxCP=document.querySelector('.checkedbox2');
+checkBoxLS =document.querySelector('.checkbox-LS'),
+checkBoxCP=document.querySelector('.checkbox-CP'),
+checkedBoxOS=document.querySelector('.checkedbox'),
+checkedBoxLS=document.querySelector('.checkedbox1'),
+checkedBoxCP=document.querySelector('.checkedbox2');
 
 checkBoxCP.onclick=()=>{
     boxse();
 }
 checkBoxLS.onclick=()=>{
-   boxse();
+    boxse();
 }
 checkBoxOS.onclick=()=>{
     boxse();
@@ -158,37 +157,27 @@ function boxse(){
     if(checkBoxOS.checked==true){
         checkedBoxOS.style.opacity= '1' ; 
         checkedBoxOS.style.display= 'flex' ; 
-        checkedBoxOS.style.visibility= ' visibel'
+        checkedBoxOS.style.visibility= ' visibel'; 
+        console.log(prices);
+        priceP.innerHTML+= prices++;
     }else{
-      checkedBoxOS.style.opacity= '0' ; 
-      checkedBoxOS.style.display= 'none' ;
+        checkedBoxOS.style.opacity= '0' ; 
+        checkedBoxOS.style.display= 'none' ;
     }
     if(checkBoxLS.checked==true){
-      checkedBoxLS.style.opacity= '1' ; 
-      checkedBoxLS.style.display= 'flex' ; 
-      checkedBoxLS.style.visibility= ' visibel'
+        checkedBoxLS.style.opacity= '1' ; 
+        checkedBoxLS.style.display= 'flex' ; 
+        checkedBoxLS.style.visibility= ' visibel';
     }else{
-      checkedBoxLS.style.opacity= '0' ; 
-      checkedBoxLS.style.display= 'none' ;
+        checkedBoxLS.style.opacity= '0' ; 
+        checkedBoxLS.style.display= 'none' ;
     }
     if(checkBoxCP.checked==true){
-      checkedBoxCP.style.opacity= '1' ; 
-      checkedBoxCP.style.display= 'flex' ; 
-      checkedBoxCP.style.visibility= ' visibel'
+        checkedBoxCP.style.opacity= '1' ; 
+        checkedBoxCP.style.display= 'flex' ; 
+        checkedBoxCP.style.visibility= ' visibel';
     }else{
-      checkedBoxCP.style.opacity= '0' ; 
-      checkedBoxCP.style.display= 'none' ;
+        checkedBoxCP.style.opacity= '0' ; 
+        checkedBoxCP.style.display= 'none' ;
     }
 }
-
-
-
-const yearly = 12 ,
-      arcade = 9,
-      advance=12,
-      pro=15,
-      adds= 2,
-      priceP= document.querySelector('.p-4');
-
-
-
