@@ -43,8 +43,6 @@ nextBTN.forEach((next)=>{
 })
 
 
-let prices=0;
-
 var phoneRegex = /^[\+]?[(]?[0-9]{3}[)]?[-\s\.]?[0-9]{3}[-\s\.]?[0-9]{4,6}$/im;
 var emailRegex =/^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
 var nameRegex = /^(([A-Za-z]+[\-\']?)*([A-Za-z]+)?\s)+([A-Za-z]+[\-\']?)*([A-Za-z]+)?$/;
@@ -92,6 +90,7 @@ const form = document.querySelector('.form'),
     }
 })
 function Erorsub(index , massage){
+    n=0;
     if(index==Name){
         erorename.innerHTML = massage;
     }
@@ -101,6 +100,12 @@ function Erorsub(index , massage){
     if(index==phone){
         erorePhone.innerHTML = massage;
     }
+    for(i=0;i<steps.length;i++){
+        steps[i].classList.remove('active');
+        stepbtn[i].classList.remove('active');
+    }
+    steps[n].classList.add('active');
+    stepbtn[n].classList.add('active');
 }
 function success(index,massege){
     if(index==Name){
@@ -113,7 +118,6 @@ function success(index,massege){
         erorePhone.innerHTML = massege;
     }
 };
-let m ;
 const priceP= document.querySelector('.p-4');
 const changeBTN = document.querySelectorAll('.change'),
       packageName = document.querySelector('.package-name'),
@@ -121,7 +125,7 @@ const changeBTN = document.querySelectorAll('.change'),
 changeBTN.forEach((btn)=>{
     btn.addEventListener('click' , function(){
         let NameVal = btn.getAttribute('data-name');
-        prices = btn.getAttribute('data-price');
+        let prices = btn.getAttribute('data-price');
         for(i=0;i<changeBTN.length;i++){
             changeBTN[i].classList.remove('active');
         }
@@ -129,13 +133,28 @@ changeBTN.forEach((btn)=>{
         packagePrice.innerHTML = "$";
         packageName.innerHTML=NameVal + ' (Monthly)' ;
         packagePrice.innerHTML += prices;
-        // priceP.innerHTML= "$";
         priceP.innerHTML= prices;
+        boxse()
     })
 });
 const move=document.querySelector('.move-in');
 move.addEventListener('click' , function(){
     move.classList.toggle('active');
+    const h3 = document.querySelectorAll('.h3');
+    if(move.classList.contains('active')){
+        for(i=0;i<h3.length;i++){
+            h3[i].classList.remove('active');
+        }
+        h3[1].classList.add('active');
+        yearlyP()
+    }else{
+        for(i=0;i<h3.length;i++){
+            h3[i].classList.remove('active');
+        }
+        h3[0].classList.add('active');
+        yearlyOff()
+    }
+    boxse();
 });
 const checkBoxOS = document.querySelector('.checkbox-OS'),
 checkBoxLS =document.querySelector('.checkbox-LS'),
@@ -153,31 +172,78 @@ checkBoxLS.onclick=()=>{
 checkBoxOS.onclick=()=>{
     boxse();
 }
+let b = 0;
+let priceINput = 2;
+let priceINPUT1=1;
 function boxse(){
+    const DATAp = document.querySelector('.box-fix .active');
+    let attre = +DATAp.getAttribute('data-price');
+    if(move.classList.contains('active')){
+        priceINput = 20;
+        priceINPUT1 = 10;
+        attre=attre*10;
+    console.log(attre,priceINPUT1,priceINput);
+    }
+    b= attre;
+
+    console.log(attre,priceINPUT1,priceINput);
+
     if(checkBoxOS.checked==true){
         checkedBoxOS.style.opacity= '1' ; 
         checkedBoxOS.style.display= 'flex' ; 
         checkedBoxOS.style.visibility= ' visibel'; 
-        console.log(prices);
-        priceP.innerHTML+= prices++;
+        b= b+priceINPUT1;
+
     }else{
         checkedBoxOS.style.opacity= '0' ; 
         checkedBoxOS.style.display= 'none' ;
+        priceP.innerHTML = "$";
+        priceP.innerHTML += `${attre}`;
+        b = b;
     }
     if(checkBoxLS.checked==true){
         checkedBoxLS.style.opacity= '1' ; 
         checkedBoxLS.style.display= 'flex' ; 
         checkedBoxLS.style.visibility= ' visibel';
+        b= b+priceINput
     }else{
         checkedBoxLS.style.opacity= '0' ; 
         checkedBoxLS.style.display= 'none' ;
+        b=b;
     }
     if(checkBoxCP.checked==true){
         checkedBoxCP.style.opacity= '1' ; 
         checkedBoxCP.style.display= 'flex' ; 
         checkedBoxCP.style.visibility= ' visibel';
+        b=b+priceINput;
+
     }else{
         checkedBoxCP.style.opacity= '0' ; 
         checkedBoxCP.style.display= 'none' ;
+        b=b;
     }
+    priceP.innerHTML = '$';
+    priceP.innerHTML += `${b}`;
+}
+function yearlyP(){
+const pYearly = document.querySelectorAll('.price-yearly');
+const priceMonthly = document.querySelectorAll('.price');
+pYearly[0].innerHTML= '$90'
+pYearly[1].innerHTML= '$120'
+pYearly[2].innerHTML='$150'
+for(i=0;i<priceMonthly.length;i++){
+    priceMonthly[i].innerHTML= '+20/yr'
+}
+priceMonthly[0].innerHTML = '+10/yr'
+}
+function yearlyOff(){
+const pYearly = document.querySelectorAll('.price-yearly');
+const priceMonthly = document.querySelectorAll('.price');
+pYearly[0].innerHTML= '$9'
+pYearly[1].innerHTML= '$12'
+pYearly[2].innerHTML='$15'
+for(i=0;i<priceMonthly.length;i++){
+    priceMonthly[i].innerHTML= '+2/mo'
+}
+priceMonthly[0].innerHTML = '+1/mo'
 }

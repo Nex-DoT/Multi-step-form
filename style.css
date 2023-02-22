@@ -194,14 +194,14 @@ button:hover{
     height: 25px;
     background-color: white;
     border-radius: 50%;
-    right: 5px;
+    right: 31px;
     top: 50%;
     transform: translateY(-50%);
     cursor: pointer;
     transition: 0.3s all;
 }
 .box-content .stepTwo .apes .span .move-in.active{
-    right: 31px;
+    right: 5px;
 }
 .box-content .stepTwo button{
     position: absolute;
@@ -308,4 +308,12 @@ button:hover{
 .form button{
     bottom: -38.5px;
     right: 10;
+}
+.h3{
+    opacity: 0.5;
+    font-size: 14px;
+    transition: 0.3s all;
+}
+.h3.active{
+    opacity: 1;
 }
