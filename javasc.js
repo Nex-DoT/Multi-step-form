@@ -93,13 +93,18 @@ function Erorsub(index , massage){
     n=0;
     if(index==Name){
         erorename.innerHTML = massage;
+        stop();
     }
     if(index==email){
         eroreemail.innerHTML = massage;
+        stop();
     }
     if(index==phone){
         erorePhone.innerHTML = massage;
+        stop();
     }
+}
+function stop(){
     for(i=0;i<steps.length;i++){
         steps[i].classList.remove('active');
         stepbtn[i].classList.remove('active');
@@ -134,11 +139,16 @@ changeBTN.forEach((btn)=>{
         packageName.innerHTML=NameVal + ' (Monthly)' ;
         packagePrice.innerHTML += prices;
         priceP.innerHTML= prices;
+        if(move.classList.contains('active')){
+        packagePrice.innerHTML= `$${prices}0/yr`;
+        packageName.innerHTML=NameVal + ' (Yearly)' ;
+        }
         boxse()
     })
 });
 const move=document.querySelector('.move-in');
 move.addEventListener('click' , function(){
+
     move.classList.toggle('active');
     const h3 = document.querySelectorAll('.h3');
     if(move.classList.contains('active')){
@@ -183,6 +193,10 @@ function boxse(){
         priceINPUT1 = 10;
         attre=attre*10;
     console.log(attre,priceINPUT1,priceINput);
+    }else{
+         b = 0;
+         priceINput = 2;
+         priceINPUT1=1;
     }
     b= attre;
 
@@ -234,7 +248,18 @@ pYearly[2].innerHTML='$150'
 for(i=0;i<priceMonthly.length;i++){
     priceMonthly[i].innerHTML= '+20/yr'
 }
-priceMonthly[0].innerHTML = '+10/yr'
+priceMonthly[0].innerHTML = '+10/yr';
+const DATAp = document.querySelector('.box-fix .active');
+let attre = +DATAp.getAttribute('data-price');
+let dataname = DATAp.getAttribute('data-name');
+packagePrice.innerHTML=`$${attre}0/yr` ;
+packageName.innerHTML =`${dataname} (Yearly)`;
+const priceSHOW = document.querySelectorAll('#price-show');
+
+for (i=0;i<priceSHOW.length;i++){
+    priceSHOW[i].innerHTML="$20/yr";
+  }
+  priceSHOW[0].innerHTML="$10/yr";
 }
 function yearlyOff(){
 const pYearly = document.querySelectorAll('.price-yearly');
@@ -246,4 +271,26 @@ for(i=0;i<priceMonthly.length;i++){
     priceMonthly[i].innerHTML= '+2/mo'
 }
 priceMonthly[0].innerHTML = '+1/mo'
+const DATAp = document.querySelector('.box-fix .active');
+let attre = +DATAp.getAttribute('data-price');
+let dataname = DATAp.getAttribute('data-name');
+packagePrice.innerHTML=`$${attre}/mo` ;
+packageName.innerHTML =`${dataname} (Monthly)`;
+const priceSHOW = document.querySelectorAll('#price-show');
+
+for (i=0;i<priceSHOW.length;i++){
+    priceSHOW[i].innerHTML="$2/mo";
+  }
+  priceSHOW[0].innerHTML="$1/mo";
 }
+
+const change = document.querySelector('.goToChose');
+change.addEventListener('click' , function(){
+    n= 1;
+    for(i=0;i<steps.length;i++){
+        steps[i].classList.remove('active');
+        stepbtn[i].classList.remove('active');
+    }
+    steps[n].classList.add('active');
+    stepbtn[n].classList.add('active');
+})
